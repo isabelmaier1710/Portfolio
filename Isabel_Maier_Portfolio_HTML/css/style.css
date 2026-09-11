@@ -1,0 +1,203 @@
+:root{
+  --pad:32px;
+  --gap:5px;
+  --text:#0a0a0a;
+  --muted:#777;
+  --soft:#f1f1f1;
+  --about-bg:#efefef;
+  --max:1800px;
+  --blue:#0057ff;
+  --header-h:66px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header-h) + 16px)}
+body{margin:0;background:#fff;color:var(--text);font-family:"Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,sans-serif;font-size:15px;font-weight:300;line-height:1.48;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none;font-weight:300}
+a:hover{text-decoration:none}
+a:focus-visible,button:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
+img{display:block;max-width:100%}
+p,h1,h2,h3,li,a,span{overflow-wrap:anywhere}
+.site{width:min(var(--max),100%);margin:0 auto;padding:0 var(--pad) 26px}
+.header{height:var(--header-h);display:flex;align-items:center;justify-content:space-between;font-size:14px;line-height:1;background:#fff;position:sticky;top:0;z-index:1000}
+.nav{display:flex;gap:30px}.nav a,.brand a{transition:color .18s ease}.nav a:hover,.brand a:hover,.nav a:focus-visible,.brand a:focus-visible{color:var(--blue);text-decoration:none}
+.brand{text-transform:lowercase}.brand a{font-weight:300}
+
+/* Projektübersicht – Seitenverhältnis und Motive wie im früheren Adobe Portfolio */
+.home-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--gap)}
+.card{position:relative;aspect-ratio:4/3;overflow:hidden;background:#eee}
+.card img{width:100%;height:100%;object-fit:cover;transition:transform .45s ease,filter .35s ease}
+.card::after{content:'';position:absolute;inset:0;background:rgba(0,0,0,.52);opacity:0;transition:opacity .28s ease;pointer-events:none}
+.card-title{position:absolute;z-index:2;left:20px;bottom:18px;right:20px;color:#fff;font-weight:300;font-size:15px;letter-spacing:.005em;opacity:0;transform:translateY(5px);transition:opacity .28s ease,transform .28s ease}
+.card:hover img,.card:focus-visible img{transform:scale(1.012)}
+.card:hover::after,.card:focus-visible::after{opacity:1}
+.card:hover .card-title,.card:focus-visible .card-title{opacity:1;transform:translateY(0)}
+
+/* Projektseiten */
+.project-head{display:grid;grid-template-columns:minmax(0,26%) minmax(0,74%);gap:0;margin:26px 0 12px}
+.project-copy{padding-right:32px;min-width:0}.project-copy h1{font-size:20px;line-height:1.15;margin:0 0 28px;font-weight:300}
+.meta{font-size:13px;line-height:1.42;font-weight:300}.meta p{margin:0}
+.gallery{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--gap);align-items:start;min-width:0}
+.gallery-item{grid-column:1/-1;overflow:hidden;background:#f2f2f2;min-width:0}.gallery-item img{width:100%;height:auto}
+.gallery-item.half{grid-column:span 6}.gallery-item.third{grid-column:span 4}.gallery-item.two-thirds{grid-column:span 8}.gallery-item.quarter{grid-column:span 3}.gallery-item.top-right{grid-column:5/-1}
+.more{margin-top:46px}.more h2{font-size:13px;margin:0 0 12px;font-weight:300}.more-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px}
+.more-card{aspect-ratio:2.55/1;overflow:hidden;position:relative;background:#eee}.more-card img{width:100%;height:100%;object-fit:cover;transition:transform .35s ease}.more-card::after{content:'';position:absolute;inset:0;background:rgba(0,0,0,.52);opacity:0;transition:opacity .25s ease}.more-card:hover img,.more-card:focus-visible img{transform:scale(1.012)}.more-card:hover::after,.more-card:focus-visible::after{opacity:1}
+.more-card span{position:absolute;z-index:2;left:12px;bottom:10px;right:12px;color:#fff;font-size:13px;font-weight:300;opacity:0;transform:translateY(4px);transition:opacity .25s ease,transform .25s ease}.more-card:hover span,.more-card:focus-visible span{opacity:1;transform:translateY(0)}
+.footer{margin-top:44px;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:#999}.footer a{transition:color .18s ease}.footer a:hover{color:var(--blue);text-decoration:none}.top{font-size:16px;border-radius:999px;background:#eee;width:36px;height:36px;display:flex;align-items:center;justify-content:center;color:#888}
+
+/* Über mich – gleiche Navigation und exakt gleiche Außenkante wie auf allen Seiten */
+.about-page{background:var(--about-bg)}
+.about-page .header{background:#fff}
+.about-main{padding:42px 0 28px;min-height:calc(100vh - var(--header-h));display:flex;flex-direction:column}
+.about-main h1{font-size:22px;line-height:1;margin:0 0 58px;font-weight:300;letter-spacing:-.3px}
+.about-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:80px;max-width:1100px;font-size:15px;line-height:1.75}
+.about-grid>*{min-width:0}.about-grid p{margin:0 0 25px}.about-grid .email{display:inline-block;margin-top:12px}.about-grid a:hover{color:var(--blue);text-decoration:none}
+.about-legal{margin-top:auto;padding-top:64px;display:flex;gap:18px;font-size:13px}.about-legal a{color:#aaa}.about-legal a:hover{color:var(--blue);text-decoration:none}
+
+/* Rechtliche / textbasierte Seiten */
+.legal-main{width:100%;max-width:760px;padding:40px 0 76px}.legal-main h1{font-size:24px;font-weight:300;margin:0 0 34px}.legal-main h2{font-size:17px;font-weight:300;margin:30px 0 10px}.legal-main p,.legal-main li{font-size:14px;line-height:1.65}.legal-main ul{padding-left:20px}.legal-placeholder{background:#f4f4f4;border-left:3px solid #bbb;padding:14px 16px;margin:12px 0 20px;max-width:100%}.legal-placeholder strong{font-weight:300}.legal-note{font-size:12px!important;color:#666;margin-top:38px!important}.legal-links{display:flex;gap:18px;flex-wrap:wrap}
+
+@media(max-width:800px){
+  :root{--pad:18px;--header-h:60px}
+  body{font-size:15px}
+  .header{font-size:14px}.nav{gap:22px}
+  .home-grid{grid-template-columns:1fr}.card{aspect-ratio:4/3}.card-title{left:15px;bottom:13px;right:15px}
+  .project-head{display:block;margin-top:20px}.project-copy{padding:0}.project-copy h1{font-size:20px;margin-bottom:13px}.meta{font-size:13px;margin-bottom:24px}
+  .gallery-item,.gallery-item.half,.gallery-item.third,.gallery-item.two-thirds,.gallery-item.quarter,.gallery-item.top-right{grid-column:1/-1}
+  .more-grid{grid-template-columns:1fr}.more-card{aspect-ratio:16/7}
+  .about-main{padding-top:36px;padding-bottom:24px}.about-main h1{font-size:21px;margin-bottom:42px}.about-grid{grid-template-columns:1fr;gap:12px;font-size:15px}.about-grid p{margin-bottom:20px}
+  .legal-main{padding-top:30px}
+}
+
+/* Auf Touch-Geräten gibt es keinen Hover. Dort bleibt der Titel dezent sichtbar. */
+@media(hover:none){
+  .card::after,.more-card::after{opacity:.28}
+  .card-title,.more-card span{opacity:1;transform:none}
+}
+
+/* v5: sticky header background always spans the complete viewport width. */
+.header{isolation:isolate}
+.header::before{
+  content:"";
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:50%;
+  width:100vw;
+  transform:translateX(-50%);
+  background:#fff;
+  z-index:-1;
+}
+
+/* v6 — project pages aligned to the original Adobe Portfolio exports */
+.project-head{display:none}
+.project-lead{margin:26px 0 5px}
+.project-title h1{
+  margin:0 0 25px;
+  font-size:24px;
+  line-height:1.08;
+  font-weight:700;
+  letter-spacing:-.02em;
+}
+.project-lead-row{
+  display:grid;
+  grid-template-columns:minmax(0,26%) minmax(0,74%);
+  gap:0;
+  align-items:start;
+}
+.project-info{
+  min-width:0;
+  padding-right:32px;
+}
+.project-info .meta{
+  margin:0;
+  font-size:14px;
+  line-height:1.42;
+  font-weight:300;
+}
+.lead-media{
+  min-width:0;
+  margin:0;
+  overflow:hidden;
+  background:#f2f2f2;
+}
+.lead-media img{width:100%;height:auto;display:block}
+.gallery{margin-top:0}
+.gallery-item{margin:0}
+.more h2{font-size:14px;font-weight:700;margin-bottom:12px}
+.more-card{aspect-ratio:4/3}
+.more-card img{width:100%;height:100%;object-fit:cover}
+
+@media(max-width:800px){
+  .project-lead{margin-top:20px}
+  .project-title h1{font-size:23px;margin-bottom:16px}
+  .project-lead-row{grid-template-columns:1fr}
+  .project-info{padding-right:0;margin-bottom:22px}
+  .project-info .meta{font-size:14px}
+  .lead-media{width:100%}
+  .more-card{aspect-ratio:4/3}
+}
+
+
+/* v7 — active section + compact mobile project menu */
+.nav a.active{font-weight:700}
+.mobile-menu-toggle,.mobile-menu-panel{display:none}
+
+@media(max-width:600px){
+  :root{--pad:16px;--header-h:58px}
+  .header{height:var(--header-h)}
+  .header .nav{display:none}
+  .header .brand{display:block;font-size:14px}
+  .mobile-menu-toggle{
+    margin-left:auto;
+    width:30px;
+    height:30px;
+    padding:5px 2px;
+    border:0;
+    background:transparent;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    gap:5px;
+    cursor:pointer;
+  }
+  .mobile-menu-toggle span{
+    display:block;
+    width:25px;
+    height:1.5px;
+    background:currentColor;
+    transform-origin:center;
+    transition:transform .2s ease,opacity .2s ease,color .2s ease;
+  }
+  .mobile-menu-toggle:hover{color:var(--blue)}
+  .mobile-menu-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+  .mobile-menu-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
+  .mobile-menu-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+  .mobile-menu-panel{
+    position:fixed;
+    z-index:999;
+    top:var(--header-h);
+    left:0;
+    right:0;
+    bottom:0;
+    background:#fff;
+    padding:22px var(--pad) 40px;
+    overflow:auto;
+  }
+  .mobile-menu-panel.is-open{display:block}
+  .mobile-main-nav{display:block;margin-bottom:8px;font-size:18px}
+  .mobile-main-nav a.active{font-weight:700}
+  .mobile-main-nav a:hover,.mobile-project-list a:hover{color:var(--blue)}
+  .mobile-project-list{display:flex;flex-direction:column;align-items:flex-start;padding-left:18px;margin-bottom:28px}
+  .mobile-project-list a{
+    font-size:14px;
+    line-height:1.3;
+    letter-spacing:0;
+    padding:4px 0;
+    font-weight:300;
+  }
+  .mobile-project-list a.current-project{font-weight:700}
+  .mobile-about-link{display:block;font-size:18px;font-weight:300}
+  .mobile-about-link.active{font-weight:700}
+  .mobile-about-link:hover{color:var(--blue)}
+  body.menu-open{overflow:hidden}
+}
